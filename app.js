@@ -2,11 +2,9 @@ const express = require('express');
 const app = express();
 const port = 8080;
 
-//Definicion de rutas
-//Home
-app.get('/', (req, res) => {
-    res.send('Hello World');
-})
+//Servir contenido estatico
+app.use(express.static('public'));
+
 
 //hola-mundo
 app.get('/hola-mundo', (req, res) => {
@@ -15,7 +13,7 @@ app.get('/hola-mundo', (req, res) => {
 
 //Cualquier otra pagina que no este definida llegara aqui
 app.get('*', (req, res) => {
-    res.send('404 | Page not found');
+    res.sendFile(__dirname + '/public/404.html');
 })
 
 //Esto aparecera en la consola
