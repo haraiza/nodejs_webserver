@@ -1,24 +1,41 @@
 const express = require('express');
+const hbs = require('hbs');
+
 const app = express();
 const port = 8080;
 
+//Handlebars
 app.set('view engine', 'hbs');
+hbs.registerPartials(__dirname + '/views/partials');
 
 //Servir contenido estatico
 app.use(express.static('public'));
 
-
-//hola-mundo
-app.get('/hola-mundo', (req, res) => {
-    res.send('Hola-Mundo');
-})
-
+//home RENDER
 app.get('/', (req, res) => {
     res.render('home', {
         nombre: 'Humberto Araiza',
         titulo: 'Curso Node'
     });
 })
+
+//generic RENDER
+app.get('/generic', (req, res) => {
+    res.render('generic', {
+        nombre: 'Humberto Araiza',
+        titulo: 'Curso Node'
+    });
+})
+
+//elements RENDER
+app.get('/elements', (req, res) => {
+    res.render('elements', {
+        nombre: 'Humberto Araiza',
+        titulo: 'Curso Node'
+    });
+})
+
+
 
 //generic. Con esto la pagina http://localhost:8080/generic no tiene terminacion .html
 app.get('/generic', (req, res) => {
