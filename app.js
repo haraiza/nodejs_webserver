@@ -11,6 +11,17 @@ app.get('/hola-mundo', (req, res) => {
     res.send('Hola-Mundo');
 })
 
+//generic. Con esto la pagina http://localhost:8080/generic no tiene terminacion .html
+app.get('/generic', (req, res) => {
+    res.sendFile(__dirname + '/public/generic.html');
+})
+
+//elements. Con esto la pagina http://localhost:8080/elements no tiene terminacion .html
+app.get('/elements', (req, res) => {
+    res.sendFile(__dirname + '/public/elements.html');
+})
+
+
 //Cualquier otra pagina que no este definida llegara aqui
 app.get('*', (req, res) => {
     res.sendFile(__dirname + '/public/404.html');
