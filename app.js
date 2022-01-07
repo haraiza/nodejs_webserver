@@ -14,7 +14,10 @@ app.get('/hola-mundo', (req, res) => {
 })
 
 app.get('/', (req, res) => {
-    res.render('home');
+    res.render('home', {
+        nombre: 'Humberto Araiza',
+        titulo: 'Curso Node'
+    });
 })
 
 //generic. Con esto la pagina http://localhost:8080/generic no tiene terminacion .html
